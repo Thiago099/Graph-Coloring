@@ -1,0 +1,20 @@
+C:\Users\THIAGO\source\repos\graph\graph\bin\Debug\graph.exe.config
+C:\Users\THIAGO\source\repos\graph\graph\bin\Debug\graph.exe
+C:\Users\THIAGO\source\repos\graph\graph\bin\Debug\graph.pdb
+C:\Users\THIAGO\source\repos\graph\graph\obj\Debug\graph.csprojAssemblyReference.cache
+C:\Users\THIAGO\source\repos\graph\graph\obj\Debug\graph.Form1.resources
+C:\Users\THIAGO\source\repos\graph\graph\obj\Debug\graph.Properties.Resources.resources
+C:\Users\THIAGO\source\repos\graph\graph\obj\Debug\graph.csproj.GenerateResource.cache
+C:\Users\THIAGO\source\repos\graph\graph\obj\Debug\graph.csproj.CoreCompileInputs.cache
+C:\Users\THIAGO\source\repos\graph\graph\obj\Debug\graph.exe
+C:\Users\THIAGO\source\repos\graph\graph\obj\Debug\graph.pdb
+C:\Users\THIAGO\source\repos\Nova pasta (2)\graph\graph\bin\Debug\graph.exe.config
+C:\Users\THIAGO\source\repos\Nova pasta (2)\graph\graph\bin\Debug\graph.exe
+C:\Users\THIAGO\source\repos\Nova pasta (2)\graph\graph\bin\Debug\graph.pdb
+C:\Users\THIAGO\source\repos\Nova pasta (2)\graph\graph\obj\Debug\graph.csprojAssemblyReference.cache
+C:\Users\THIAGO\source\repos\Nova pasta (2)\graph\graph\obj\Debug\graph.Form1.resources
+C:\Users\THIAGO\source\repos\Nova pasta (2)\graph\graph\obj\Debug\graph.Properties.Resources.resources
+C:\Users\THIAGO\source\repos\Nova pasta (2)\graph\graph\obj\Debug\graph.csproj.GenerateResource.cache
+C:\Users\THIAGO\source\repos\Nova pasta (2)\graph\graph\obj\Debug\graph.csproj.CoreCompileInputs.cache
+C:\Users\THIAGO\source\repos\Nova pasta (2)\graph\graph\obj\Debug\graph.exe
+C:\Users\THIAGO\source\repos\Nova pasta (2)\graph\graph\obj\Debug\graph.pdb
