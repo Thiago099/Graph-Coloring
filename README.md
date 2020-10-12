@@ -3,7 +3,7 @@
 ## Mouse
     Left to drag
     Right to delete
-    Middle to connect(if the secound node is invalid a new one is created
+    Middle to connect (creates a new node when the target is invalid)
   
 ## Keyboard
     F5 Save
