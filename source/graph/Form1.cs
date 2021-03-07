@@ -32,14 +32,42 @@ namespace graph
                 con2[con[i][1]].Add(con[i][0]);
                 con2[con[i][0]].Add(con[i][1]);
             }
+
+            
+
             //color the graph
             bool busy = true;
             int c = 0;
             while (busy)
             {
+                int[] triangles = new int[graph.Count()];
+
+                for (int i = 0; i < triangles.Count(); i++)
+                {
+                    for (int j = 0; j < con2[i].Count(); j++)
+                    {
+                        for (int k = 0; k < con2[con2[i][j]].Count(); k++)
+                        {
+                            if (con2[con2[i][j]][k] == i)
+                            {
+                                triangles[i]++;
+                            }
+                        }
+                    }
+                }
+                List<int> priority = new List<int>();
+                List<int> priority_id = new List<int>();
+
+                for (int i = 0; i < triangles.Count(); i++)
+                {
+                    var m=priority.Mind(triangles[i]);
+                    priority.Match(m,triangles[i]);
+                    priority_id.Match(m, i);
+                }
+
                 busy = false;
-                for (int i = 0; i < graph.Count; i++)
-                    active(i);
+                for (int i = priority_id.Count()-1; i >= 0; i--)
+                    active(priority_id[i]);
                 void active(int m)
                 {
                     if (graph[m] == c)
@@ -142,9 +170,9 @@ namespace graph
                 Brushes.Gray,
                 Brushes.Black,
                 Brushes.White,
-            };
-            List<int> graph;
-            List<Point> pos ;
+        };
+        List<int> graph;
+        List<Point> pos ;
         List<int[]> con;
         
         private void Form1_Paint(object sender, PaintEventArgs e)
