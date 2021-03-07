@@ -1,5 +1,5 @@
-# Run
-add list ext to the solution
+# Deprecated
+this repository is deprecated use https://github.com/Thiago099/Graph-Coloring-2 instead
 
 # Controls
 
