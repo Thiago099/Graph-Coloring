@@ -18,3 +18,13 @@ C:\Users\THIAGO\source\repos\Nova pasta (2)\graph\graph\obj\Debug\graph.csproj.G
 C:\Users\THIAGO\source\repos\Nova pasta (2)\graph\graph\obj\Debug\graph.csproj.CoreCompileInputs.cache
 C:\Users\THIAGO\source\repos\Nova pasta (2)\graph\graph\obj\Debug\graph.exe
 C:\Users\THIAGO\source\repos\Nova pasta (2)\graph\graph\obj\Debug\graph.pdb
+D:\repos\Graph-Coloring\source\graph\bin\Debug\graph.exe.config
+D:\repos\Graph-Coloring\source\graph\bin\Debug\graph.exe
+D:\repos\Graph-Coloring\source\graph\bin\Debug\graph.pdb
+D:\repos\Graph-Coloring\source\graph\obj\Debug\graph.csprojAssemblyReference.cache
+D:\repos\Graph-Coloring\source\graph\obj\Debug\graph.Form1.resources
+D:\repos\Graph-Coloring\source\graph\obj\Debug\graph.Properties.Resources.resources
+D:\repos\Graph-Coloring\source\graph\obj\Debug\graph.csproj.GenerateResource.cache
+D:\repos\Graph-Coloring\source\graph\obj\Debug\graph.csproj.CoreCompileInputs.cache
+D:\repos\Graph-Coloring\source\graph\obj\Debug\graph.exe
+D:\repos\Graph-Coloring\source\graph\obj\Debug\graph.pdb

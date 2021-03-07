@@ -32,14 +32,42 @@ namespace graph
                 con2[con[i][1]].Add(con[i][0]);
                 con2[con[i][0]].Add(con[i][1]);
             }
+
+
+
             //color the graph
             bool busy = true;
             int c = 0;
             while (busy)
             {
+                int[] triangles = new int[graph.Count()];
+
+                for (int i = 0; i < triangles.Count(); i++)
+                {
+                    for (int j = 0; j < con2[i].Count(); j++)
+                    {
+                        for (int k = 0; k < con2[con2[i][j]].Count(); k++)
+                        {
+                            if (con2[con2[i][j]][k] == i)
+                            {
+                                triangles[i]++;
+                            }
+                        }
+                    }
+                }
+                List<int> priority = new List<int>();
+                List<int> priority_id = new List<int>();
+
+                for (int i = 0; i < triangles.Count(); i++)
+                {
+                    var m = priority.Mind(triangles[i]);
+                    priority.Match(m, triangles[i]);
+                    priority_id.Match(m, i);
+                }
+
                 busy = false;
-                for (int i = 0; i < graph.Count; i++)
-                    active(i);
+                for (int i = priority_id.Count() - 1; i >= 0; i--)
+                    active(priority_id[i]);
                 void active(int m)
                 {
                     if (graph[m] == c)
@@ -84,7 +112,7 @@ namespace graph
                     b.Write(0);
                 }
             load();
-            
+
         }
         void save()
         {
@@ -142,14 +170,14 @@ namespace graph
                 Brushes.Gray,
                 Brushes.Black,
                 Brushes.White,
-            };
-            List<int> graph;
-            List<Point> pos ;
+        };
+        List<int> graph;
+        List<Point> pos;
         List<int[]> con;
-        
+
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            
+
             var g = e.Graphics;
             g.FillRectangle(Brushes.Black, new Rectangle(0, 0, 640, 480));
 
@@ -157,9 +185,9 @@ namespace graph
 
             if (drag)
             {
-                pos[drag_id]=new Point(m.X + drag_relative.X,m.Y + drag_relative.Y);
+                pos[drag_id] = new Point(m.X + drag_relative.X, m.Y + drag_relative.Y);
             }
-            if(connect)
+            if (connect)
             {
                 g.DrawLine(Pens.White, pos[drag_id], m);
             }
@@ -169,19 +197,19 @@ namespace graph
             }
             for (int i = 0; i < pos.Count; i++)
             {
-                var ret = new Rectangle(pos[i].X - 16/2, pos[i].Y - 16/2, 16, 16);
+                var ret = new Rectangle(pos[i].X - 16 / 2, pos[i].Y - 16 / 2, 16, 16);
                 g.FillEllipse(color[graph[i]], ret);
                 g.DrawEllipse(Pens.White, ret);
                 // g.DrawString(graph[i].ToString(),SystemFonts.CaptionFont, Brushes.Cyan, pos[i].X+8, pos[i].Y+8);
             }
         }
-        bool drag=false;
+        bool drag = false;
         int drag_id;
         void OnTimedEvent(object source, EventArgs e)
         {
             Refresh();
         }
-        bool dist(int d, int i,int x,int y)
+        bool dist(int d, int i, int x, int y)
             => (Math.Pow(pos[i].X - x, 2) + Math.Pow(pos[i].Y - y, 2)) < (d * d);
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -201,33 +229,33 @@ namespace graph
             switch (e.Button)
             {
                 case MouseButtons.Left:
-                    
-                        for (int i = 0; i < pos.Count; i++)
+
+                    for (int i = 0; i < pos.Count; i++)
+                    {
+                        if (dist(16, i, x, y))
                         {
-                            if (dist(16, i, x, y))
-                            {
-                                drag = true;
-                                drag_id = i;
-                                drag_relative.X = pos[i].X - x;
-                                drag_relative.Y = pos[i].Y - y;
-                                return;
-                            }
+                            drag = true;
+                            drag_id = i;
+                            drag_relative.X = pos[i].X - x;
+                            drag_relative.Y = pos[i].Y - y;
+                            return;
                         }
-                        create();
-                    
+                    }
+                    create();
+
                     break;
                 case MouseButtons.Middle:
-                    
-                        for (int i = 0; i < pos.Count; i++)
+
+                    for (int i = 0; i < pos.Count; i++)
+                    {
+                        if (dist(16, i, x, y))
                         {
-                            if (dist(16, i, x, y))
-                            {
-                                connect = true;
-                                drag_id = i;
-                                return;
-                            }
-                            
+                            connect = true;
+                            drag_id = i;
+                            return;
                         }
+
+                    }
                     create();
 
                     break;
@@ -256,9 +284,9 @@ namespace graph
                     }
                     break;
             }
-           
+
         }
-        bool connect=false;
+        bool connect = false;
         Point drag_relative;
 
         private void Form1_MouseUp(object sender, MouseEventArgs e)
@@ -288,15 +316,15 @@ namespace graph
                 con.Add(new int[] { cur, drag_id });
                 solve();
             }
-            
+
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
-                case Keys.F5:save();break;
-                case Keys.F9:load();break;
+                case Keys.F5: save(); break;
+                case Keys.F9: load(); break;
             }
         }
     }
