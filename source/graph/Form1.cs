@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,10 +29,8 @@ namespace graph
 
             for (int i = 0; i < con.Count; i++)
             {
-                int from = con[i][0];
-                int   to = con[i][1];
-                con2[  to].Add(from);
-                con2[from].Add(  to);
+                con2[con[i][1]].Add(con[i][0]);
+                con2[con[i][0]].Add(con[i][1]);
             }
             //color the graph
             bool busy = true;
@@ -44,31 +42,26 @@ namespace graph
                     active(i);
                 void active(int m)
                 {
-                    int selection = graph[m];
-                    if (selection == c)
+                    if (graph[m] == c)
                     {
-                        var cur = con2[m];
                         List<int> pass = new List<int>();
-                        for (int j = 0; j < cur.Count(); j++)
+                        for (int j = 0; j < con2[m].Count(); j++)
                         {
-                            var cur2 = cur[j];
-                            if (graph[cur2] == c)
+                            if (graph[con2[m][j]] == c)
                             {
-                                con2[cur2].Remove(graph[selection]);
-                                graph[cur2]++;
-                                pass.Add(cur2);
+                                con2[con2[m][j]].Remove(m);
+                                graph[con2[m][j]]++;
+                                pass.Add(con2[m][j]);
                                 busy = true;
                             }
                         }
-                        cur = new List<int>();
                         foreach (var i in pass)
                             passive(i);
                     }
                 }
                 void passive(int m)
                 {
-                    var cur = con2[m];
-                    foreach (var i in cur)
+                    foreach (var i in con2[m])
                         active(i);
                 }
                 c++;
@@ -90,7 +83,7 @@ namespace graph
                     b.Write(0);
                     b.Write(0);
                 }
-                    load();
+            load();
             
         }
         void save()
